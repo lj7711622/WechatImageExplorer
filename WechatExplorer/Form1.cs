@@ -60,6 +60,7 @@ namespace WechatExplorer
                     e.Node.Nodes.Add(subDir.FullName);
                 }
                 FileInfo[] files = dir.GetFiles();
+                Array.Sort(files, delegate (FileInfo x, FileInfo y) { return x.CreationTime.CompareTo(y.CreationTime); });
                 foreach (FileInfo fileInfo in files)
                 {
                     listBox1.Items.Add(fileInfo.Name);
